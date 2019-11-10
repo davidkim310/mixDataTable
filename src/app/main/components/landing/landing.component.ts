@@ -12,6 +12,7 @@ export class LandingComponent implements OnInit {
   constructor(private dataService: AgeDataService) { }
   ages;
   names;
+  columnsToDisplay = ['ID', 'First Name', 'Last Name', 'Age'];
   finalArray = [];
   ngOnInit() {
     this.dataService.requestData().subscribe((res) => {
