@@ -18,16 +18,16 @@ export class LandingComponent implements OnInit {
       this.ages = res[0];
       this.names = res[1];
       const finalArray = {};
-      for (let i = 0; i < this.ages.length; i++) {
-        finalArray[this.ages[i].id] = this.ages[i];
+      for (const age of this.ages) {
+        finalArray[age.id] = age;
       }
-      for (let j = 0; j < this.names.length; j++) {
-        if (finalArray.hasOwnProperty(this.names[j].id)) {
-          finalArray[this.names[j].id].firstName = (this.names[j].firstName) ? this.names[j].firstName : '';
-          finalArray[this.names[j].id].lastName = (this.names[j].lastName) ? (this.names[j].lastName) : '';
+      for (const name of  this.names) {
+        if (finalArray.hasOwnProperty(name.id)) {
+          finalArray[name.id].firstName = (name.firstName) ? name.firstName : '';
+          finalArray[name.id].lastName = (name.lastName) ? (name.lastName) : '';
         } else {
-          finalArray[this.names[j].id] = this.names[j];
-          finalArray[this.names[j].id].age = (this.names[j].age) ? this.names[j].age : '';
+          finalArray[name.id] = name;
+          finalArray[name.id].age = (name.age) ? name.age : '';
         }
       }
       this.finalArray = Object.values(finalArray);
